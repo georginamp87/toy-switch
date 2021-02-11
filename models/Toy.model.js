@@ -7,8 +7,7 @@ const toySchema = new Schema({
     require: true
   },
   description: {
-    type: String,
-    require: true
+    type: String
   },
   photo: {
     type: String,
