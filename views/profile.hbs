@@ -1,11 +1,47 @@
-<h1>Welcome to your Profile{{name}} </h1>
 
-<form method="POST" action="/signup">
-    <label>Name</label>
-    <input name="name" type="text" placeholder="Enter your name">
-    <label>Email</label>
-    <input name="email" type="email" placeholder="Enter your Email">
-    <label>Password</label>
-    <input name="password" type="password"  placeholder="Enter your Password"  >
-    <button type="submit" >Sign Up</button>
-  </form>
+<div class="columnDiv">
+<section class="profile">
+  <div class="card mb-3" width="500px">
+    <h4 class="card-title">Hello {{data.user.name}}!</h4>
+    <div class="row g-0 centerImg">
+       
+      <div class="col-md-4">
+        <img width="60%" src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png"
+          alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+         
+          <table>
+            <tr>
+              <th>Name:</th>
+              <td>{{data.user.name}}</td>
+            </tr>
+            <tr>
+              <th>Last Name:</th>
+              <td>{{data.user.lastName}}</td>
+            </tr>
+            <tr>
+              <th>City:</th>
+              <td>{{data.user.city}}</td>
+            </tr>
+            <tr>
+              <th>Email:</th>
+              <td>{{data.user.email}}</td>
+            </tr>
+          </table>
+          <button class="btn-primary btn-lg rightButton">EDIT PROFILE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="yourToys">
+
+ <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each data.toyResults}}
+    {{>toy this}}
+    {{/each}}
+  </div>
+</section> </div>

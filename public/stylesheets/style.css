@@ -8,4 +8,37 @@ a {
 h1 {
   color: 15px; }
 
+
+  tr, td, th {
+    padding:10px 20px;
+    font-size: 1em;
+  }
+
+  th{
+    text-align: right;
+  }
+  .rightButton{
+   margin: 10px;
+   align-items: flex-end;
+  }
+
+  
+  .centerImg{
+    width:60%
+  align-items: center;
+  justify-content: center;
+  padding:0 0 0 20px;
+}
+
+.columnDiv{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+
+
 /*# sourceMappingURL=style.css.map */

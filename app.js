@@ -12,6 +12,7 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+hbs.registerPartials(__dirname + '/views/partials')
 
 const app = express();
 
@@ -22,7 +23,7 @@ require("./config")(app);
 const projectName = "ToySwitch";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)}- Generated with IronGenerator`;
+app.locals.title = `${capitalized(projectName)}`;
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose')
@@ -32,11 +33,11 @@ app.use(session({
     saveUninitialized: false, 
     resave: false, 
     cookie: {
-      maxAge: 1000*60*60*24// is in milliseconds.  expiring in 1 day
+      maxAge: 1000*60*60*24*7// is in milliseconds.  expiring in 1 week
     },
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      ttl: 60*60*24, // is in seconds. expiring in 1 day
+      ttl: 60*60*24*7, // is in seconds. expiring in 1 week
     })
 }));
 // 👇 Start handling routes here

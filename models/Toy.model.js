@@ -9,13 +9,18 @@ const toySchema = new Schema({
   description: {
     type: String
   },
-  photo: {
-    type: String,
+  photos: {
+    type: [String],
     require: true,
   },
   category: {
     type: String,
-    enum: ['Toy', 'Board Game', 'Teddy Bear', 'Puzzle', 'Sports', 'other'],
+    enum: ['Toy', 'Board Game', 'Teddy Bear', 'Puzzle', 'Sports', 'Books', 'Video games', 'other'],
+    require: true
+  },
+  city: {
+    type: String,
+    enum: ['Berlin', 'Frankfurt', 'Paris', 'other'],
     require: true
   },
   ageRange: {
@@ -32,6 +37,6 @@ const toySchema = new Schema({
   }
 });
 
-const Toy = new model("Toy", toySchema);
+const ToyModel = new model("Toy", toySchema);
 
-module.exports = Toy;
+module.exports = ToyModel;

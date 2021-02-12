@@ -25,9 +25,10 @@ const userSchema = new Schema({
     type: String,
     enum: ['Berlin', 'Frankfurt', 'Paris', 'other'],
     require: true
-  }
+  },
+
 });
 
-const User =new model("User", userSchema);
+const UserModel =new model("User", userSchema);
 
-module.exports = User;
+module.exports = UserModel;

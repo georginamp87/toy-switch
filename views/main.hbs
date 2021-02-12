@@ -1,1 +1,21 @@
 <h1>main page</h1>
+
+<section class="searchbar">
+  <form class="d-flex" action="/main" method="GET">
+    <input name='searchedToy' class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+</section>
+<section class="categories">
+  <button>Switch</button>
+  <button>Gift</button>
+  <button>Temporary Switch</button>
+</section>
+<section class="switchcases">
+  <h2>Switch Options</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each data.toyResults}}
+    {{>toy this}}
+    {{/each}}
+  </div>
+</section>
