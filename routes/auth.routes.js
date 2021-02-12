@@ -1,6 +1,17 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs');
-const User = require('../')
+const User = require('../models/User.model')
+
+
+const checkBeforeLogin = (req, res, next) => {
+  if (req.session.userData) {
+    res.redirect('/main')
+  }
+  else {
+    next()
+  }
+
+}
 
 router.get("/signup", (req, res, next) => {
   // Shows the sign up form to the user
@@ -45,15 +56,14 @@ router.post("/signup", (req, res, next) => {
   let hash = bcrypt.hashSync(password, salt);
   User.create({ name, lastName, email, password: hash, city })
     .then((oneUser) => {
-      req.session.loggedInUser = oneUser
-      res.redirect('/main')
+      res.redirect('/login')
     })
     .catch((err) => {
       next(err)
     })
 })
 
-router.get("/login", checkLoggedInUser, (req, res, next) => {
+router.get("/login", checkBeforeLogin, (req, res, next) => {
   // Shows the sign up form to the user
   res.render('auth/login.hbs')
 })
@@ -63,7 +73,7 @@ router.post("/login", (req, res, next) => {
 
   // implement the same set of validations as you did in signup as well
   // NOTE: We have used the Async method here. Its just to show how it works
-  UserModel.findOne({ email: email })
+  User.findOne({ email: email })
     .then((result) => {
       // if user exists
       if (result) {
@@ -92,16 +102,7 @@ router.post("/login", (req, res, next) => {
 
 });
 
-//Middleware to protect routes
-const checkLoggedInUser = (req, res, next) => {
-  if (req.session.userData) {
-    next()
-  }
-  else {
-    res.redirect('/login')
-  }
 
-}
 
 //router.get(path, callback,callback,callback,callback,callback)
 router.get('/logout', (req, res) => {

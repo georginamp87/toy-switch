@@ -1,3 +1,8 @@
+const router = require('express').Router()
+const bcrypt = require('bcryptjs');
+const User = require('../models/User.model')
+
+//Middleware to protect routes
 const checkLoggedInUser = (req, res, next) => {
   if (req.session.userData) {
     next()
@@ -5,7 +10,6 @@ const checkLoggedInUser = (req, res, next) => {
   else {
     res.redirect('/login')
   }
-
 }
 
 router.get('/profile', checkLoggedInUser, (req, res, next) => {
@@ -21,3 +25,5 @@ router.get('/main', checkLoggedInUser, (req, res, next) => {
 // router.get('/private', checkLoggedInUser, (req, res, next) => {
 //   res.render('auth/private.hbs')
 // })
+
+module.exports = router
