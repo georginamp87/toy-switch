@@ -1,4 +1,7 @@
-const { Schema, model } = require("mongoose");
+const {
+  Schema,
+  model
+} = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
@@ -18,17 +21,15 @@ const userSchema = new Schema({
   password: {
     type: String,
     require: true,
-    unique: true
   },
   photo: String,
   city: {
     type: String,
-    enum: ['Berlin', 'Frankfurt', 'Paris', 'other'],
+    enum: ['Amsterdam', 'Berlin', 'Frankfurt', 'Paris', 'other'],
     require: true
-  },
-
+  }
 });
 
-const UserModel =new model("User", userSchema);
+const UserModel = new model("user", userSchema);
 
 module.exports = UserModel;
