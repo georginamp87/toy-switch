@@ -1,5 +1,4 @@
 const router = require('express').Router()
-const bcrypt = require('bcryptjs');
 const ToyModel = require('../models/Toy.model');
 const UserModel = require('../models/User.model')
 
@@ -13,13 +12,10 @@ const checkLoggedInUser = (req, res, next) => {
 }
 
 router.get('/profile', checkLoggedInUser, (req, res, next) => {
-  let user = req.session.userData
-
-  
+  let user = req.session.userData 
   ToyModel.find({myOwner:user._id})
   .then((toyResults)=>{
     let data = {user, toyResults}
-   console.log(toyResults.length)
    res.render('profile.hbs', {data})
   })
   .catch((err)=>{
@@ -29,13 +25,48 @@ router.get('/profile', checkLoggedInUser, (req, res, next) => {
 
 router.get('/editprofile', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
-
-  
-  UserModel.find({myOwner:user._id})
+  UserModel.findById(user._id)
   .then((user)=>{
     let data = {user}
-   console.log(toyResults.length)
-   res.render('profile.hbs', {data})
+   res.render('edit-profile.hbs', {data})
+  })
+  .catch((err)=>{
+    next(err)
+  })
+})
+
+router.post('/editprofile', checkLoggedInUser, (req, res, next) => {
+  let user = req.session.userData;
+  const { name, lastName, city, email} = req.body
+
+  if (!name.length || !lastName.length || !email.length || !city.length) {
+    res.render('edit-profile', { msg: 'Please enter all fields' })
+    return;
+  }
+  let regexEmail = /\S+@\S+\.\S+/;
+  if (!regexEmail.test(email)) {
+    res.render('edit-profile', { msg: 'Email is not a valid format' })
+    return;
+  }
+  UserModel.findOne({email})
+    .then((oneUser) => {
+      if (oneUser) {
+        res.render('edit-profile', {
+          msg: "Email is already related with another account!"
+        })
+        return;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return;
+    })
+  let updatedUser={name,lastName, city, email}
+  UserModel.findByIdAndUpdate(user._id, updatedUser,{new: true})
+  .then((user)=>{
+    req.session.userData = user
+    console.log(user)
+   res.redirect("/profile")
   })
   .catch((err)=>{
     next(err)
@@ -55,7 +86,5 @@ router.get('/main', checkLoggedInUser, (req, res, next) => {
     next(err)
   })
 })
-
-
 
 module.exports = router
