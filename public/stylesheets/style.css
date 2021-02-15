@@ -15,11 +15,23 @@ header span {
 }
 
 a {
+  text-decoration: none;
   color: #00b7ff; }
 
+  button a:hover,button a:visited,button a:active,button a:link {
+    color:white;
+  }
+
+.toy-link:hover,.toy-link:visited,.toy-link:active,.toy-link:link {
+    color:black;
+  }
+
+
 h1 {
-  font-size: 20px; 
+  font-size: 3; 
   color: #FF4040;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
 }
 
 tr, td, th {
@@ -34,7 +46,7 @@ tr, td, th {
 
   .rightButton{
    margin: 10px;
-   align-items: flex-end;
+   align-self:flex-end;
   }
 
   

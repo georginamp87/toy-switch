@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+let defaultImg ="https://image.freepik.com/vektoren-kostenlos/weihnachten-spielt-hintergrund-im-flachen-design_23-2148350472.jpg";
 
 const toySchema = new Schema({
   name: {
@@ -15,7 +16,7 @@ const toySchema = new Schema({
   },
   photos: {
     type: [String],
-    require: true,
+    default:[defaultImg]
   },
   category: {
     type: String,
@@ -36,7 +37,7 @@ const toySchema = new Schema({
   },
   switchMode: {
     type: String,
-    enum: ['switch', 'gift', 'temporary loan']
+    enum: ['switch', 'gift', 'temporary switch']
   }
 });
 

@@ -14,6 +14,23 @@ const checkLoggedInUser = (req, res, next) => {
 
 router.get('/profile', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
+
+  
+  ToyModel.find({myOwner:user._id})
+  .then((toyResults)=>{
+    let data = {user, toyResults}
+   console.log(toyResults.length)
+   res.render('profile.hbs', {data})
+  })
+  .catch((err)=>{
+    next(err)
+  })
+})
+
+router.get('/editprofile', checkLoggedInUser, (req, res, next) => {
+  let user = req.session.userData
+
+  
   ToyModel.find({myOwner:user._id})
   .then((toyResults)=>{
     let data = {user, toyResults}
@@ -38,5 +55,7 @@ router.get('/main', checkLoggedInUser, (req, res, next) => {
     next(err)
   })
 })
+
+
 
 module.exports = router

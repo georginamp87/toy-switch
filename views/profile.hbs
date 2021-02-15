@@ -28,15 +28,17 @@
                 <td>{{data.user.email}}</td>
               </tr>
             </table>
-            <button class="btn-primary btn-lg rightButton">EDIT PROFILE</button>
+           
         </div>
+         <button class="btn-primary btn-lg rightButton"><a href='/editprofile'>EDIT PROFILE</a></button>
       </div>
     </div>
   </section>
   <section class="yourToys">
-    
-     
-    <div class="row row-cols-1 row-cols-md-3 g-4"> 
+     <div class="center"><h1>Your Toys</h1></div>
+           <button class="btn-primary btn-lg rightButton"><a href='/addtoy'>Add new toy</a></button>
+ 
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       {{#each data.toyResults}}
       {{>toy this}}
       {{/each}}

@@ -1,0 +1,51 @@
+<div class="col">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{data.toy.name}}</h5>
+
+
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+         
+          
+          <div class="carousel-item active">
+            <img src="{{data.toy.photos.[0]}}" class="d-block w-100" alt="toyimage">
+          </div>
+          {{#each data.toy.photos}}
+          <div class="carousel-item">
+            <img src="{{this}}" class="d-block w-100" alt="toyimage">
+          </div>
+       {{/each}}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+
+
+
+
+
+      <p class="card-text">{{data.toy.description}}</p>
+      <p class="card-text">{{data.toy.city}}</p>
+
+      {{#if data.boolean}}
+      <button class="btn-primary btn-lg buttonRight"><a href='/editToy/{{data.toy._id}}'>Edit Toy</a></button>
+      <button class="btn-primary btn-lg buttonRight"><a href='/deleteToy/{{data.toy._id}}'>Delete Toy</a></button>
+
+      {{/if}}
+
+      {{#unless data.boolean}}
+      <p class="card-text">Toy Owner: {{data.owner.name}} {{data.owner.lastName}}</p>
+      <button class="btn-primary btn-lg buttonRight"><a href='/sendmessage'>Request Switch</a></button>
+      {{/unless}}
+    </div>
+  </div>
+</div>

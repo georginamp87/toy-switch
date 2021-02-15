@@ -1,12 +1,22 @@
 <form method="POST" action="/login">
-  <label>Email</label>
+
+  <div class="mb-3">
+    <label>Email</label>
     <input name="email" type="email" placeholder="Enter your Email">
-  <label>Password</label>
-  <input name="password" type="password" name="password" placeholder="Enter your Password"  >
-  <button type="submit" >Log In</button>
+  </div>
+  <div class="mb-3">
+    <label>Password</label>
+    <input name="password" type="password" name="password" placeholder="Enter your Password">
+  </div>
+  <div class="mb-3">
+    <button type="submit">Log In</button>
+  </div>
 </form>
 
 {{!-- Conditionally render the msg--}}
 {{#if msg}}
-  <div class="error">{{msg}}</div>
+<div class="error">{{msg}}</div>
 {{/if}}
+
+
+<h5>Still not registered? Sign Up <a href="/signup">here</a></h5>

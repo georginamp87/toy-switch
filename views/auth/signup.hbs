@@ -1,8 +1,14 @@
 <form method="POST" action="/signup">
+ 
+  <div class="mb-3">
     <label>Name</label>
     <input name="name" required="true" type="text">
+     </div>
+  <div class="mb-3">
     <label>Last Name</label>
     <input name="lastName" required="true" type="text">
+     </div>
+  <div class="mb-3">
     <label>City</label>
       <select name="city" class="form-select" aria-label="Default select example">
       <option selected>Select a city</option>
@@ -11,11 +17,17 @@
       <option value="Paris">Paris</option>
       <option value="Other">Other</option>
     </select>
+     </div>
+  <div class="mb-3">
     <label>Email</label>
     <input name="email" required="true" type="email">
+     </div>
+  <div class="mb-3">
     <label>Password</label>
-    <input name="password" required="true" type="password">
+    <input name="password" required="true" type="password"> </div>
+  <div class="mb-3">
     <button type="submit" >Sign Up</button>
+     </div>
   </form>
 
   {{!-- Conditionally render the msg--}}
