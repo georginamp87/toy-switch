@@ -31,9 +31,9 @@ router.get('/editprofile', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
 
   
-  ToyModel.find({myOwner:user._id})
-  .then((toyResults)=>{
-    let data = {user, toyResults}
+  UserModel.find({myOwner:user._id})
+  .then((user)=>{
+    let data = {user}
    console.log(toyResults.length)
    res.render('profile.hbs', {data})
   })
