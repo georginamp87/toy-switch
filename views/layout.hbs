@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{title}}</title>
-      <link rel="preconnect" href="https://fonts.gstatic.com">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>{{title}}</title>
+   <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Indie+Flower&display=swap" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-   </head>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-   <body>
-      <header>Toy<span>Switch</span></header>
-      {{#if data.user}}
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <div class="container-fluid">
-            <a class="navbar-brand" href="/main">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-               <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/main">Home</a>
-                <a class="nav-link" href="/profile">Profile</a>
-                <a class="nav-link" href="#">Messages</a>
-                <hr>
-                <a class="nav-link" href="/logout">Log Out</a>
-               </div>
+<body>
+   <header>Toy<span>Switch</span></header>
+   {{#if data.user}}
+{{!--    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="/main">Home</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+               <a class="nav-link active" aria-current="page" href="/main">Home</a>
+               <a class="nav-link" href="/profile">Profile</a>
+               <a class="nav-link" href="#">Messages</a>
+               <hr>
+               <a class="nav-link" href="/logout">Log Out</a>
             </div>
+
          </div>
-      </nav>
-    {{/if}}
-      {{{body}}}
-<!-- JavaScript Bundle with Popper -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-      <script src="/js/script.js"></script>
-   </body>
+      </div>
+   </nav> --}}
+   <div id="navalternative">
+      <a href="/main">Home</a>
+      <a href="/profile">Profile</a>
+      <a href="/messages">Messages</a>
+      <a class="end" href="/logout">Log Out</a>
+   </div>
+   {{/if}}
+   {{{body}}}
+   <!-- JavaScript Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"></script>
+   <script src="/js/script.js"></script>
+</body>
 
 </html>

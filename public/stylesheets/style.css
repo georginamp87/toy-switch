@@ -14,6 +14,27 @@ header span {
   color: #FF4040;
 }
 
+#navalternative a{
+  font-size: 1em;
+  text-decoration: none;
+  text-transform:uppercase;
+  color:blue;
+  font-weight: 600;
+}
+
+#navalternative{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#navalternative a{ 
+  margin:2em;
+  color:blue;
+  font-weight: 550;
+}
+
 a {
   text-decoration: none;
   color: #00b7ff; }
@@ -51,7 +72,7 @@ tr, td, th {
 
   
   .centerImg{
-    width:60%
+    width:60%;
   align-items: center;
   justify-content: center;
   padding:0 0 0 20px;
@@ -64,8 +85,5 @@ tr, td, th {
   flex-direction: column;
 
 }
-
-
-
 
 /*# sourceMappingURL=style.css.map */
