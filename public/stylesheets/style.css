@@ -1,22 +1,37 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header {
+  font-family: 'Fredoka One', cursive;
+  color: #0E53A7;
+  font-size: 3em;
+}
+
+header span {
+  font-family: 'Fredoka One', cursive;
+  color: #FF4040;
+}
 
 a {
   color: #00b7ff; }
 
 h1 {
-  color: 15px; }
+  font-size: 20px; 
+  color: #FF4040;
+}
 
-
-  tr, td, th {
+tr, td, th {
     padding:10px 20px;
     font-size: 1em;
   }
 
   th{
     text-align: right;
+    color:#133CAC;
   }
+
   .rightButton{
    margin: 10px;
    align-items: flex-end;
