@@ -1,10 +1,14 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
 const toySchema = new Schema({
   name: {
     type: String,
     require: true
+  },
+  myOwner: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    require:true
   },
   description: {
     type: String
@@ -20,8 +24,7 @@ const toySchema = new Schema({
   },
   city: {
     type: String,
-    enum: ['Berlin', 'Frankfurt', 'Paris', 'other'],
-    require: true
+    enum: ['Amsterdam', 'Berlin', 'Frankfurt', 'Paris','other'],
   },
   ageRange: {
     type: String,
@@ -37,6 +40,6 @@ const toySchema = new Schema({
   }
 });
 
-const ToyModel = new model("Toy", toySchema);
+const ToyModel = new model("toy", toySchema);
 
 module.exports = ToyModel;
