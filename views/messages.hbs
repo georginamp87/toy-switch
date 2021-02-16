@@ -1,0 +1,21 @@
+<h1>Your Messages</h1>
+
+<div class="list-group">
+
+  {{#each data.contacts}}
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="flex-line">
+    <div>
+      {{!-- <img class="small-img" src="{{this.toyPhoto}}" alt="toyimages"> --}}
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+      {{!-- <h5 class="mb-1">Toy to Switch: {{this.toyName}}</h5>
+       <p class="mb-1">Contact: {{this.contactName}}</p> --}}
+      <p class="mb-1">Message: {{this}}</p>
+      <small>Date sent: {{data.this.date}}</small>
+    </div>
+    </div>
+  </a>
+  {{/each}}
+ 
+</div>

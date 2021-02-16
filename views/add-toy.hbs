@@ -52,6 +52,13 @@
       <option value="temporary switch">Temporary switch</option>
     </select>
   </div>
+  <div class="mb-3">
+    <label>Toy photos</label>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="imageUrl" accept="image/png, image/jpg">
+      <button type="submit">Add photo</button>
+    </form>
+  </div>
 
   {{!-- <div class="mb-3">
     <label class="form-label">Photos</label>

@@ -70,7 +70,16 @@ tr, td, th {
    align-self:flex-end;
   }
 
-  
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  .panel {
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
   .centerImg{
     width:60%;
   align-items: center;

@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const ToyModel = require('../models/Toy.model');
 const UserModel = require('../models/User.model')
+const uploader = require('../config/cloudinary.config');
+
 
 const checkLoggedInUser = (req, res, next) => {
   if (req.session.userData) {
@@ -17,8 +19,8 @@ router.get('/toypage/:id', checkLoggedInUser, (req, res, next) => {
  .then((toy)=> {
    UserModel.findById(toy.myOwner)
    .then((owner)=> {
-     let boolean=user._id==owner._id
-     let data = {user, toy, owner, boolean}
+     let bool=user._id==owner._id
+     let data = {user, toy, owner, bool}
      res.render('toypage.hbs', {data})
    })
    .catch((err)=> {
@@ -66,6 +68,9 @@ router.post("/addtoy/", checkLoggedInUser, (req, res, next) => {
 
 })
 
+// router.post('upload', checkLoggedInUser, uploader.single("imageUrl"), (req, res, next) => {
+//   ToyModel.findByIdAndUpdate(req.session.ToyModel._id, {toyImg})
+// })
 router.get('/edittoy/:id', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
   let id=req.params.id;
