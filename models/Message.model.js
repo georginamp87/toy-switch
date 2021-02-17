@@ -6,7 +6,7 @@ const messageSchema = new Schema({
     require: true
   },
   between: {
-    type:[ Schema.Types.ObjectId],
+    type:[Schema.Types.ObjectId],
     ref: "user",
     require:true
   },

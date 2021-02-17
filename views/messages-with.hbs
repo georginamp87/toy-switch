@@ -1,0 +1,39 @@
+
+
+  
+
+<div class="messages-div list-group">
+  <div class="card mb-3" style="max-width: 800px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img class="small-image" src="{{data.photoUrl}}" alt="toyimages">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Messages with <span>{{data.contactName}} {{data.contactLastName}}</span></h5>
+          <h5 class="card-title">Toy to Switch <span>{{data.toyName}}</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    {{#each data.messInfos}}
+
+    {{#if this.isItMein}}
+    <div class="div-right">{{this.text}}</div>
+    {{/if}}
+
+    {{#unless this.isItMein}}
+    <div class="div-left">{{this.text}}</div>
+
+    {{/unless}}
+
+    {{/each}}
+    <form method="POST" action="/answermessage/{{data.contactId}}/{{data.toyId}}">
+          <input name="text" required="true" type="text" class="form-control">
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+
+
+
+  </div>
