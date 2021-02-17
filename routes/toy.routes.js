@@ -38,14 +38,15 @@ router.get("/addtoy", checkLoggedInUser, (req, res, next) => {
   res.render("add-toy.hbs", {data})
 })
 
-router.post("/addtoy/", checkLoggedInUser, (req, res, next) => {
+router.post("/addtoy/", checkLoggedInUser,uploader.single("imageUrl"), (req, res, next) => {
   let user = req.session.userData
    
   const {name, description, category, ageRange, gender, switchMode}=req.body
   let newToy={
     name,description, category, ageRange, gender, switchMode,
     myOwner:user._id,
-    city:user.city
+    city:user.city,
+    photos:[req.file.path]
   }
   ToyModel.create(newToy)
   .then(()=> {
@@ -57,9 +58,15 @@ router.post("/addtoy/", checkLoggedInUser, (req, res, next) => {
 
 })
 
-// router.post('upload', checkLoggedInUser, uploader.single("imageUrl"), (req, res, next) => {
-//   ToyModel.findByIdAndUpdate(req.session.ToyModel._id, {toyImg})
-// })
+router.post('upload', checkLoggedInUser, uploader.single("imageUrl"), (req, res, next) => {
+  ToyModel.findByIdAndUpdate(req.session.ToyModel._id, {$push: { photos: req.file.path }})
+  .then(()=> {
+    res.redirect('/toypage')
+  })
+  .catch(()=> {
+    res.redirect('/error')
+  })
+})
 
 router.get('/edittoy/:id', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
