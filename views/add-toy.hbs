@@ -35,15 +35,6 @@
     </select>
   </div>
   <div class="mb-3">
-    <label>Gender</label>
-    <select name="gender" class="form-select" aria-label="Default select example">
-      <option selected>Select a gender</option>
-      <option value="girl">Girl</option>
-      <option value="boy">Boy</option>
-      <option value="gender neutral">Gender neutral</option>
-    </select>
-  </div>
-  <div class="mb-3">
     <label>Switch Mode</label>
     <select name="switchMode" class="form-select" aria-label="Default select example">
       <option selected>Select a switch mode</option>
@@ -62,3 +53,7 @@
 
   <button type="submit" class="btn btn-primary">Add New Toy</button>
 </form>
+
+{{#if msg}}
+<div class="error">{{msg}}</div>
+{{/if}}

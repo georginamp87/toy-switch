@@ -32,10 +32,6 @@ const toySchema = new Schema({
     type: String,
     ENUM: ['baby', 'toddler', '3 to 6 years old', '7 to 10 years old', '10 years old +'],
   },
-  gender: {
-    type: String, 
-    ENUM: ['girl', 'boy', 'gender neutral'],
-  },
   switchMode: {
     type: String,
     ENUM: ['switch', 'gift', 'temporary switch'],

@@ -41,13 +41,20 @@ router.get("/addtoy", checkLoggedInUser, (req, res, next) => {
 router.post("/addtoy/", checkLoggedInUser,uploader.single("imageUrl"), (req, res, next) => {
   let user = req.session.userData
    
-  const {name, description, category, ageRange, gender, switchMode}=req.body
+  const {name, description, category, ageRange, switchMode}=req.body
+
+  if (!name.length || !description.length || !category.length || !ageRange.length || !switchMode.length) {
+    res.render('/addtoy', { msg: 'Please enter all fields' })
+    return;
+  }
+  
   let newToy={
-    name,description, category, ageRange, gender, switchMode,
+    name,description, category, ageRange, switchMode,
     myOwner:user._id,
     city:user.city,
     photos:[req.file.path]
   }
+  
   ToyModel.create(newToy)
   .then(()=> {
     res.redirect('/profile')
@@ -97,9 +104,9 @@ router.post("/edittoy/:id", checkLoggedInUser,(req,res,next)=>{
   let user = req.session.userData
   let id=req.params.id;
   
-  const {name, description, category, ageRange, gender, switchMode}=req.body
+  const {name, description, category, ageRange, switchMode}=req.body
   let updatedToy={
-    name,description, category, ageRange, gender, switchMode,
+    name,description, category, ageRange, switchMode,
     myOwner:user._id,
     city:user.city
   }
