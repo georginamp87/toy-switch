@@ -32,17 +32,6 @@ router.get('/toypage/:id', checkLoggedInUser, (req, res, next) => {
   })
 })
 
-router.get('/deleteToy/:id', checkLoggedInUser, (req, res, next) => {
- let id=req.params.id;
- ToyModel.findByIdAndRemove(id)
- .then(()=> {
-   res.redirect("/profile")
- })
- .catch((err)=>{
-  res.redirect("/not-authorised")
- })
-})
-
 router.get("/addtoy", checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
   let data={user}
@@ -71,6 +60,7 @@ router.post("/addtoy/", checkLoggedInUser, (req, res, next) => {
 // router.post('upload', checkLoggedInUser, uploader.single("imageUrl"), (req, res, next) => {
 //   ToyModel.findByIdAndUpdate(req.session.ToyModel._id, {toyImg})
 // })
+
 router.get('/edittoy/:id', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
   let id=req.params.id;
@@ -114,9 +104,17 @@ router.post("/edittoy/:id", checkLoggedInUser,(req,res,next)=>{
     res.render('not-authorised.hbs')
   })
 
-
-  
-
 })
+
+router.get('/deletetoy/:id', checkLoggedInUser, (req, res, next) => {
+  let id=req.params.id;
+  ToyModel.findByIdAndRemove(id)
+  .then(()=> {
+    res.redirect("/profile")
+  })
+  .catch((err)=>{
+   res.redirect("/not-authorised")
+  })
+ })
 
 module.exports = router

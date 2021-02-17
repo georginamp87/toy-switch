@@ -1,7 +1,6 @@
 body {
   padding: 50px;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
- 
 
 }
 
@@ -22,24 +21,19 @@ h5 span {
 }
 
 #navalternative a{
-  font-size: 1em;
+  font-size: 1.3em;
   text-decoration: none;
   text-transform:uppercase;
-  color:blue;
+  color:#0E53A7;
+  font-family: 'Fredoka One';
   font-weight: 600;
+  margin:2em;
 }
 
 #navalternative{
-  
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-}
-
-#navalternative a{ 
-  margin:2em;
-  color:blue;
-  font-weight: 550;
 }
 
 a {
@@ -53,7 +47,6 @@ a {
 .toy-link:hover,.toy-link:visited,.toy-link:active,.toy-link:link {
     color:black;
   }
-
 
 h1 {
   font-size: 3; 
@@ -87,12 +80,10 @@ tr, td, th {
     transition: max-height 0.2s ease-out;
   }
 
-  .centerImg{
-    width:60%;
-  align-items: center;
-  justify-content: center;
-  padding:0 0 0 20px;
-}
+  .profile{
+    max-width:700px;
+    margin:auto
+  }
 
 .columnDiv{
   display: flex;
@@ -120,7 +111,7 @@ tr, td, th {
   margin:1em;
   padding:1em;
   text-align: end;
-  background-color:cyan;
+  background-color:rgb(168, 220, 233);
 
 }
 
@@ -136,6 +127,14 @@ tr, td, th {
 
 p{
   padding:0.3em;
+}
+
+
+#toypage{
+
+  margin:auto;
+  max-width: 700px;
+  
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -11,15 +11,7 @@ const checkBeforeLogin = (req, res, next) => {
   }
 }
 
-const checkLoggedInUser = (req, res, next) => {
-  if (req.session.userData) {
-    next()
-  }
-  else {
-    res.redirect('/login')
-  }
-}
-router.get("/signup", (req, res, next) => {
+router.get("/signup", checkBeforeLogin, (req, res, next) => {
   res.render('auth/signup.hbs')
 });
 

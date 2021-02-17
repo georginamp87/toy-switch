@@ -1,5 +1,5 @@
 <div class="col">
-  <div class="card">
+  <div id="toypage" class="card">
     <div class="card-body">
       <h5 class="card-title">{{data.toy.name}}</h5>
 
@@ -29,10 +29,12 @@
 
       <p class="card-text">{{data.toy.description}}</p>
       <p class="card-text">{{data.toy.city}}</p>
+      <p class="card-text">Age range: {{data.toy.ageRange}}</p>
+      <p class="card-text">Available for: {{data.toy.switchMode}}</p>
 
       {{#if data.bool}}
-      <button class="btn-primary btn-lg buttonRight"><a href='/editToy/{{data.toy._id}}'>Edit Toy</a></button>
-      <button class="btn-primary btn-lg buttonRight"><a href='/deleteToy/{{data.toy._id}}'>Delete Toy</a></button>
+      <button class="btn-primary btn-lg buttonRight"><a href='/edittoy/{{data.toy._id}}'>Edit Toy</a></button>
+      <button class="btn-primary btn-lg buttonRight"><a href='/deletetoy/{{data.toy._id}}'>Delete Toy</a></button>
 
       {{/if}}
 

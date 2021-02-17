@@ -25,7 +25,7 @@ const userSchema = new Schema({
   photo: String,
   city: {
     type: String,
-    enum: ['Amsterdam', 'Berlin', 'Frankfurt', 'Paris', 'other'],
+    ENUM: ['Amsterdam', 'Berlin', 'Frankfurt', 'Paris', 'other'],
     require: true
   }
 });
