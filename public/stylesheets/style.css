@@ -20,6 +20,20 @@ h5 span {
  
 }
 
+h4 {
+  text-align: center;
+  color: black;
+  font-family: 'Fredoka One';
+}
+
+.categories {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 #navalternative a{
   font-size: 1.3em;
   text-decoration: none;
