@@ -1,6 +1,6 @@
 <h1>Add a new toy</h1>
 
-<form method="POST" action="/addtoy">
+<form class="profile" method="POST" action="/addtoy" enctype="multipart/form-data">
   <div class="mb-3">
     <label class="form-label">Name</label>
     <input name="name" type="text" class="form-control">
@@ -45,12 +45,8 @@
   </div>
   <div class="mb-3">
     <label>Toy photos</label>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
       <input type="file" name="imageUrl" accept="image/png, image/jpg">
-      <button type="submit" class="btn btn-primary">Add photo</button>
-    </form>
   </div>
-
   <button type="submit" class="btn btn-primary">Add Toy To Collection</button>
 </form>
 

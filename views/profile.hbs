@@ -4,10 +4,17 @@
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
+
+
           <img width="100%"
-            src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png"
+            src={{data.user.photo}}
             alt="profile">
         </div>
+
+
+
+
+
         <div class="col-md-8">
           <div class="card-body">
             <table>
@@ -30,10 +37,15 @@
             </table>
 
           </div>
-          <button class="btn-primary btn-lg rightButton"><a target="_blank" href='/editprofile'>EDIT
-              PROFILE</a></button>
+
         </div>
+
       </div>
+      <div class="div-button">
+        <button class="btn-primary btn-lg"><a href='/addprofilephoto'>Change Your Photo</a></button>
+        <button class="btn-primary btn-lg rightButton"><a href='/editprofile'>EDIT PROFILE</a></button>
+      </div>
+
   </section>
   <section class="yourToys">
     <div class="center">

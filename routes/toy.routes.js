@@ -47,7 +47,7 @@ router.post("/addtoy/", checkLoggedInUser,uploader.single("imageUrl"), (req, res
     res.render('/addtoy', { msg: 'Please enter all fields' })
     return;
   }
-  
+  console.log(req.file.path)
   let newToy={
     name,description, category, ageRange, switchMode,
     myOwner:user._id,

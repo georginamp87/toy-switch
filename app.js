@@ -47,8 +47,11 @@ app.use("/", index);
 const authRoutes = require('./routes/auth.routes')
 app.use('/', authRoutes)
 
-const mainRoutes = require('./routes/main.routes')
-app.use('/', mainRoutes)
+const homeRoutes = require('./routes/home.routes')
+app.use('/', homeRoutes)
+
+const profileRoutes = require('./routes/profile.routes')
+app.use('/', profileRoutes)
 
 const toyRoutes = require('./routes/toy.routes')
 app.use('/', toyRoutes)

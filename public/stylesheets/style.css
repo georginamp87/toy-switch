@@ -35,13 +35,13 @@ h4 {
 }
 
 #navalternative a{
-  font-size: 1.3em;
+  font-size: 1.2em;
   text-decoration: none;
   text-transform:uppercase;
   color:#0E53A7;
   font-family: 'Fredoka One';
   font-weight: 600;
-  margin:2em;
+  margin:1.3em 1.3em 2em 1.3em;
 }
 
 #navalternative{
@@ -71,7 +71,7 @@ h1 {
 
 tr, td, th {
     padding:10px 20px;
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   th{
@@ -95,7 +95,7 @@ tr, td, th {
   }
 
   .profile{
-    max-width:700px;
+    max-width:600px;
     margin:auto
   }
 
@@ -149,6 +149,19 @@ p{
   margin:auto;
   max-width: 700px;
   
+}
+
+.div-button{
+
+  display: flex;
+  justify-content:space-between ;
+  align-items: center;
+}
+
+.toy-image {
+  width:100%;
+  max-height: 40vh; /*not want to take all vertical space*/
+    object-fit: contain;/*show all image, autosized, no cut, in available space*/
 }
 
 /*# sourceMappingURL=style.css.map */

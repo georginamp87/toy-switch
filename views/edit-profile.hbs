@@ -1,5 +1,5 @@
 <h1>Edit profile</h1>
-<form method="POST" action="/editprofile">
+<form class="profile" method="POST" action="/editprofile">
   <div class="mb-3">
     <label class="form-label">Name</label>
     <input value={{data.user.name}} name="name" type="text" class="form-control">
@@ -12,10 +12,12 @@
     <label>City</label>
     <select name="city" class="form-select" aria-label="Default select example">
       <option selected> {{data.user.city}}</option>
+      <option value="Amsterdam">Amsterdam</option>
       <option value="Berlin">Berlin</option>
       <option value="Frankfurt">Frankfurt</option>
+      <option value="Madrid">Madrid</option>
+      <option value="Munich">Munich</option>
       <option value="Paris">Paris</option>
-      <option value="Other">Other</option>
     </select>
   </div>
   <div class="mb-3">

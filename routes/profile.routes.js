@@ -1,6 +1,7 @@
-const router = require('express').Router()
+const router = require('express').Router();
 const ToyModel = require('../models/Toy.model');
-const UserModel = require('../models/User.model')
+const UserModel = require('../models/User.model');
+const uploader = require('../config/cloudinary.config');
 
 const checkLoggedInUser = (req, res, next) => {
   if (req.session.userData) {
@@ -11,19 +12,6 @@ const checkLoggedInUser = (req, res, next) => {
   }
 }
 
-router.get('/main', checkLoggedInUser, (req, res, next) => {
-  let user = req.session.userData
- ToyModel.find()
-  .then((allToys)=>{
-    let toyResults=(req.query.searchedToy)?
-    allToys.filter(toy=>toy.name.toLowerCase().includes(req.query.searchedToy.toLowerCase())):allToys.filter(item=>item.city==user.city)
-     let data = {user, toyResults}
-     res.render('main.hbs', {data})
-  })
-  .catch((err)=>{
-    next(err)
-  })
-})
 
 router.get('/profile', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData 
@@ -39,14 +27,8 @@ router.get('/profile', checkLoggedInUser, (req, res, next) => {
 
 router.get('/editprofile', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData
-  UserModel.findById(user._id)
-  .then((user)=>{
     let data = {user}
    res.render('edit-profile.hbs', {data})
-  })
-  .catch((err)=>{
-    next(err)
-  })
 })
 
 router.post('/editprofile', checkLoggedInUser, (req, res, next) => {
@@ -62,7 +44,8 @@ router.post('/editprofile', checkLoggedInUser, (req, res, next) => {
     res.render('edit-profile', { msg: 'Email is not a valid format' })
     return;
   }
-  UserModel.findOne({email})
+  if(user.email!=email){
+    UserModel.findOne({email})
     .then((oneUser) => {
       if (oneUser) {
         res.render('edit-profile', {
@@ -75,6 +58,8 @@ router.post('/editprofile', checkLoggedInUser, (req, res, next) => {
       console.log(err);
       return;
     })
+  }
+  
   let updatedUser={name,lastName, city, email}
   UserModel.findByIdAndUpdate(user._id, updatedUser,{new: true})
   .then((user)=>{
@@ -87,6 +72,23 @@ router.post('/editprofile', checkLoggedInUser, (req, res, next) => {
   })
 })
 
+router.get('/addprofilephoto', checkLoggedInUser, (req, res, next) => {
+  let user = req.session.userData
+  let data = {user}
+   res.render('addprofilephoto.hbs', {data})
+  
+})
 
+router.post('/addprofilephoto', checkLoggedInUser, uploader.single("imageUrl"), (req, res, next) => {
+  console.log(req.file.path)
+  UserModel.findByIdAndUpdate(req.session.userData._id,  { photo: req.file.path },{new:true})
+  .then((result)=> {
+    req.session.userData = result
+    res.redirect('/profile')
+  })
+  .catch(()=> {
+    res.redirect('/error')
+  })
+})
 
 module.exports = router
