@@ -9,7 +9,7 @@ Switch toys with other parents from your city.
 - **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
 - **401** - As a user I want to see a nice 401 page when I go to a page that I'm not allowed to enter so that I know it was my fault.
 - **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-- **login-signup** - As a user I want to see a welcome page that gives me the option to either log in as an existing user, or sign up with a new account. If I have not logged out I'll be automatically redirected to the main page.
+- **login-signup** - As a user I want to see a welcome page that gives me the option to either log in as an existing user, or sign up with a new account. If I have not logged out I'll be automatically redirected to the home page.
 - **add-signup** - As a user I want to sign up with my full information so that I can safely switch toys with other people. If I have already signed up I'll get a message to let me know I've already used this email.
 - **homepage** - As a user I want to see switch options within my location and be able to either search a toy by name, or go to my profile from the home page.
 - **toy-search-results** - As a user I want to see the search results with an overview image, the title, the toy's description, and the switch mode. Also, to go back to the home page if I don't want to see that search anymore.
@@ -24,7 +24,7 @@ Switch toys with other parents from your city.
 - GET / 
   - renders login-signup.hbs
 - GET /signup
-  - redirects to /main if user logged in
+  - redirects to /home if user logged in
   - renders auth/signup.hbs
 - POST /signup
   - redirects to /login after signup
@@ -35,15 +35,15 @@ Switch toys with other parents from your city.
     - email
     - password
 - POST /login
-  - redirects to /main when user logged in
+  - redirects to /home when user logged in
   - body:
     - email
     - password
 - GET /logout
   - redirects to /
   - deletes user session data
-- GET /main
-  - renders main.hbs (the toy switches preview + search form)
+- GET /home
+  - renders home.hbs (the toy switches preview + search form)
  - renders toy switches result when searched
 - GET /toypage/:id
   - renders toypage.hbs using the toyId params
@@ -151,7 +151,7 @@ Switch toys with other parents from your city.
     -button to delete message
     -label for read and unread messages
 
-- main.hbs
+- home.hbs
     -search by age range categories and switch mode
 
  - Confirmation.hbs

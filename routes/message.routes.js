@@ -54,7 +54,7 @@ router.get('/messages', checkLoggedInUser, (req, res, next) => {
     })
     .then((allmessages) => {
       let dtos = []
-      allmessages.forEach(ms => {
+      allmessages.filter(msg=>(msg.toyRelated)).forEach(ms => {
 
         let contact = (ms.between[0]._id == user._id) ? ms.between[1] : ms.between[0]
 
@@ -103,7 +103,8 @@ router.get('/messageswith/:id', checkLoggedInUser, (req, res, next) => {
     })
     .then((allMessages) => {
       let messInfos = [];
-      allMessages.forEach(ms => {
+      let activeMessages=allMessages.filter(msg=>(msg.toyRelated))
+      activeMessages.forEach(ms => {
         let messInfo = {
           text: ms.text,
           date: ms.date,
@@ -114,12 +115,12 @@ router.get('/messageswith/:id', checkLoggedInUser, (req, res, next) => {
       let data = {
         messInfos,
         user,
-        photoUrl: allMessages[0].toyRelated.photos[0],
-        contactName: (user._id == contactId) ? allMessages[0].between[0].name : allMessages[0].between[1].name,
-        contactLastName: (user._id == contactId) ? allMessages[0].between[0].lastName : allMessages[0].between[1].lastName,
+        photoUrl: activeMessages[0].toyRelated.photos[0],
+        contactName: (user._id == contactId) ? activeMessages[0].between[0].name : activeMessages[0].between[1].name,
+        contactLastName: (user._id == contactId) ? activeMessages[0].between[0].lastName : activeMessages[0].between[1].lastName,
         contactId: contactId,
-        toyName: allMessages[0].toyRelated.name,
-        toyId: allMessages[0].toyRelated._id
+        toyName: activeMessages[0].toyRelated.name,
+        toyId: activeMessages[0].toyRelated._id
       }
       console.log(data.toyId)
       res.render("messages-with", { data })

@@ -15,44 +15,44 @@ let hash5 = bcrypt.hashSync("Frankfurt12.", salt);
 let hash6 = bcrypt.hashSync("Frankfurt12.", salt);
 
 UserModel.create([{
-            name: "Test1",
-            lastName: "Berlin",
-            email: "test1@berlin.com",
+            name: "Arthur",
+            lastName: "Simith",
+            email: "arthur@berlin.com",
             password: hash1,
             city: "Berlin"
         },
         {
-            name: "Test2",
-            lastName: "Berlin",
-            email: "test2@berlin.com",
+            name: "Jenny",
+            lastName: "Wall",
+            email: "jenny@berlin.com",
             password: hash2,
             city: "Berlin"
         },
         {
-            name: "Test1",
-            lastName: "Paris",
-            email: "test1@paris.com",
+            name: "David",
+            lastName: "Schneider",
+            email: "david@paris.com",
             password: hash3,
             city: "Paris"
         },
         {
-            name: "Test2",
-            lastName: "Paris",
-            email: "test2@paris.com",
+            name: "Mary",
+            lastName: "Black",
+            email: "mary@paris.com",
             password: hash4,
             city: "Paris"
         },
         {
-            name: "Test1",
-            lastName: "Frankfurt",
-            email: "test1@frankfurt.com",
+            name: "Julia",
+            lastName: "Bauer",
+            email: "julia@frankfurt.com",
             password: hash5,
             city: "Frankfurt"
         },
         {
-            name: "Test2",
-            lastName: "Frankfurt",
-            email: "test2@frankfurt.com",
+            name: "Jonas",
+            lastName: "Schwarz",
+            email: "jonas@frankfurt.com",
             password: hash6,
             city: "Frankfurt"
         }
@@ -67,7 +67,6 @@ UserModel.create([{
                 category: 'Sports',
                 city: 'Berlin',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             },
             {
@@ -78,7 +77,6 @@ UserModel.create([{
                 category: 'Books',
                 city: 'Berlin',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             },
             {
@@ -100,7 +98,6 @@ UserModel.create([{
                 category: 'Teddy Bear',
                 city: 'Paris',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             },
             {
@@ -111,7 +108,6 @@ UserModel.create([{
                 category: 'Sports',
                 city: 'Paris',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             },
             {
@@ -122,7 +118,6 @@ UserModel.create([{
                 category: 'Books',
                 city: 'Paris',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             },
             {
@@ -133,7 +128,6 @@ UserModel.create([{
                 category: 'Books',
                 city: 'Frankfurt',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             },
             {
@@ -144,7 +138,6 @@ UserModel.create([{
                 category: 'Teddy Bear',
                 city: 'Frankfurt',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             },
             {
@@ -155,7 +148,6 @@ UserModel.create([{
                 category: 'Sports',
                 city: 'Frankfurt',
                 ageRange: 'toddler',
-                gender: 'gender neutral',
                 switchMode: 'switch'
             }
         ]

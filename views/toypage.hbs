@@ -33,23 +33,31 @@
       <p class="card-text">Available for: {{data.toy.switchMode}}</p>
 
       {{#if data.bool}}
+      <div class="div-button-center">
       <button class="btn-primary btn-lg buttonRight"><a href='/edittoy/{{data.toy._id}}'>Edit Toy</a></button>
-      <button class="btn-primary btn-lg buttonRight"><a href='/deletetoy/{{data.toy._id}}'>Delete Toy</a></button>
+      <button class="btn-primary btn-del btn-lg buttonRight"><a href='/deletetoy/{{data.toy._id}}'>Delete Toy</a></button>
 
+
+      </div>
+      
       {{/if}}
 
 
 
 
       {{#unless data.bool}}
-
       <p class="card-text">Toy Owner: {{data.owner.name}} {{data.owner.lastName}}</p>
+
+      <div class="center">
+
+      
       <button class="accordion btn-primary btn-lg buttonRight">Request Switch</button>
       <div class="panel">
-        <form method="POST" action="/sendmessage/{{data.toy._id}}">
-          <input name="text" required="true" type="text" class="form-control">
-          <button type="submit" class="btn btn-primary">Send</button>
+        <textarea name="text" form="usrform" cols="60" rows="4" placeholder="Enter your message here..."></textarea>
+        <form id="userform" class="center" method="POST" action="/sendmessage/{{data.toy._id}}">
+          <button type="submit" class="btn btn-primary btn-del">Send</button>
         </form>
+        </div>
 
 
         {{/unless}}

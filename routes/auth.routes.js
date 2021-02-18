@@ -4,7 +4,7 @@ const User = require('../models/User.model')
 
 const checkBeforeLogin = (req, res, next) => {
   if (req.session.userData) {
-    res.redirect('/main')
+    res.redirect('/home')
   }
   else {
     next()
@@ -73,7 +73,7 @@ router.post("/login", (req, res, next) => {
           .then((isMatching) => {
             if (isMatching) {
               req.session.userData = result
-              res.redirect('/main')
+              res.redirect('/home')
             }
             else {
               res.render('auth/login.hbs', { msg: 'Password is incorrect' })

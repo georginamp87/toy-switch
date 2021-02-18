@@ -34,7 +34,7 @@ const toySchema = new Schema({
   },
   switchMode: {
     type: String,
-    ENUM: ['switch', 'gift', 'temporary switch'],
+    ENUM: ['switch', 'gift', 'temporary-switch'],
   }
 });
 

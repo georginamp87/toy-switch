@@ -3,15 +3,15 @@
 <form method="POST" action="/edittoy/{{data.toy._id}}">
   <div class="mb-3">
     <label class="form-label">Name</label>
-    <input value="{{data.toy.name}}" name="name" type="text" class="form-control">
+    <input  required="true"  value="{{data.toy.name}}" name="name" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Description</label>
-    <input value="{{data.toy.description}}" name="description" type="text" class="form-control">
+    <input  required="true"   value="{{data.toy.description}}" name="description" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label>Category</label>
-    <select name="category" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="category" class="form-select" aria-label="Default select example">
       <option value="{{data.toy.category}}"selected>{{data.toy.category}}</option>
       <option value="Toy">Toy</option>
       <option value="Board Game">Board Game</option>
@@ -25,7 +25,7 @@
   </div>
   <div class="mb-3">
     <label>Age Range</label>
-    <select name="ageRange" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="ageRange" class="form-select" aria-label="Default select example">
       <option value="{{data.toy.ageRange}}"selected>{{data.toy.ageRange}}</option>
       <option value="baby">Baby</option>
       <option value="toddler">Toddler</option>
@@ -36,17 +36,20 @@
   </div>
 <div class="mb-3">
     <label>Switch Mode</label>
-    <select name="switchMode" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="switchMode" class="form-select" aria-label="Default select example">
       <option value="{{data.toy.switchMode}}" selected>{{data.toy.switchMode}}</option>
       <option value="switch">Switch</option>
       <option value="gift">Gift</option>
-      <option value="temporary switch">Temporary switch</option>
+      <option value="temporary-switch">Temporary switch</option>
     </select>
   </div>
-
-  {{!-- <div class="mb-3">
-    <label class="form-label">Photos</label>
-    <input name="photos" type="text" class="form-control">
-  </div> --}}
+    <div class="mb-3">
+    <label>Toy photos</label>
+      <input type="file" name="imageUrl" accept="image/png, image/jpg">
+  </div>
   <button type="submit" class="btn btn-primary">Update Toy</button>
 </form>
+
+{{#if msg}}
+<div class="error">{{msg}}</div>
+{{/if}}

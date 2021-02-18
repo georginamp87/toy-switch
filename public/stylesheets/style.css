@@ -1,7 +1,15 @@
-body {
-  padding: 50px;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  position: relative;
+  min-height: 100%;
+}
 
+.animate__animated.animate__bounce {
+  --animate-duration: 2s;
+}
+body {
+  margin-bottom: 4em;
+  padding: 4em 4em 0 4em;
+  font: 16px 'Roboto Condensed', sans-serif, Helvetica;
 }
 
 header {
@@ -19,10 +27,24 @@ header span {
  background-blend-mode: screen;
 }
 
+
+
 h5 span {
   font-family: 'Fredoka One';
   font-style: italic;
  
+}
+.error {
+  font-family: 'Fredoka One';
+  color:#FF4040;
+  text-align: center;
+ 
+}
+
+h5  {
+  text-align: center;
+  color: black;
+  font-family: 'Fredoka One';
 }
 
 h4 {
@@ -31,22 +53,56 @@ h4 {
   font-family: 'Fredoka One';
 }
 
+
 .categories {
   margin: auto;
-  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar,.row-cols-md-3{
+  margin: 1em;
+}
+
+.btn-primary{
+  background-color:#0E53A7 ;
+  font-family: 'Fredoka One';
+}
+.categories button{
+  margin: 1em;
+  width: 12em;
+}
+.div-link{
+  padding: 1.5em;
+  margin: auto;
   text-align: center;
   display: flex;
   justify-content: space-between;
+
+}
+
+footer{
+  width: 100%;
+  height: 4em;
+  position: absolute;
+  bottom: 0px; left: 0;
+  margin-top: 1em;
+}
+#divfooter  {
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 #navalternative a{
-  font-size: 1.3em;
+  font-size: 1.2em;
   text-decoration: none;
   text-transform:uppercase;
   color:#0E53A7;
   font-family: 'Fredoka One';
   font-weight: 600;
-  margin:2em;
+  margin:1.3em 1.3em 2em 1.3em;
 }
 
 #navalternative{
@@ -54,6 +110,12 @@ h4 {
   flex-direction: row;
   justify-content: flex-end;
 }
+
+#index-body{
+  max-width: 60em;
+  margin:auto;
+}
+
 
 a {
   text-decoration: none;
@@ -72,11 +134,13 @@ h1 {
   color: #FF4040;
   text-align: center;
   font-family: 'Fredoka One', cursive;
+  animation: wobble; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
 }
 
 tr, td, th {
     padding:10px 20px;
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   th{
@@ -100,8 +164,20 @@ tr, td, th {
   }
 
   .profile{
-    max-width:700px;
+    max-width:600px;
     margin:auto
+  }
+
+  .center{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+  }
+  
+
+  .pro-card{
+    margin: 1em;
   }
 
 .columnDiv{
@@ -112,7 +188,7 @@ tr, td, th {
 
 }
 
-.fhhlex-inline{
+.flex-inline{
   display: flex;
   flex-direction: row;
 }
@@ -140,6 +216,11 @@ tr, td, th {
   padding:1em;
   text-align: start;
 }
+
+#toypage{
+  width:40em;
+  margin: auto;
+}
 .messages-div{
   margin: auto;
 }
@@ -149,11 +230,26 @@ p{
 }
 
 
-#toypage{
+.btn-del:hover{
+  background-color: #FF4040;
+  border-color: #FF4040;
+}
 
-  margin:auto;
-  max-width: 700px;
-  
+.div-button{
+  display: flex;
+  justify-content:space-between ;
+  align-items: center;
+}
+.div-button-center{
+  display: flex;
+  justify-content:space-around ;
+  align-items: center;
+}
+
+.toy-image {
+  width:100%;
+  max-height: 40vh; /*not want to take all vertical space*/
+  object-fit: contain;/*show all image, autosized, no cut, in available space*/
 }
 
 /*# sourceMappingURL=style.css.map */

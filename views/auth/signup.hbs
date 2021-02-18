@@ -1,31 +1,33 @@
 <h1>Sign Up</h1>
 
-<form method="POST" action="/signup">
+<form class="profile" method="POST" action="/signup">
   <div class="mb-3">
     <label class="form-label">Name</label>
-    <input name="name" type="text" class="form-control">
+    <input  required="true"  name="name" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Last Name</label>
-    <input name="lastName" type="text" class="form-control">
+    <input  required="true"  name="lastName" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label>City</label>
-    <select name="city" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="city" class="form-select" aria-label="Default select example">
       <option selected>Select a city</option>
+            <option value="Amsterdam">Amsterdam</option>
       <option value="Berlin">Berlin</option>
       <option value="Frankfurt">Frankfurt</option>
+      <option value="Madrid">Madrid</option>
+      <option value="Munich">Munich</option>
       <option value="Paris">Paris</option>
-      <option value="Other">Other</option>
     </select>
   </div>
   <div class="mb-3">
      <label class="form-label">Email</label>
-    <input name="email" required="true" type="email"  class="form-control">
+    <input  name="email" required="true" type="email"  class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Password</label>
-    <input name="password" type="password" class="form-control">
+    <input  required="true"  name="password" type="password" class="form-control">
   </div>
  
 

@@ -3,7 +3,8 @@ const {
   model
 } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
+let defaultProfileImg="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png"
+
 const userSchema = new Schema({
   name: {
     type: String,
@@ -22,10 +23,13 @@ const userSchema = new Schema({
     type: String,
     require: true,
   },
-  photo: String,
+  photo: {
+    type: String,
+    default: defaultProfileImg,
+  },
   city: {
     type: String,
-    ENUM: ['Amsterdam', 'Berlin', 'Frankfurt', 'Paris', 'other'],
+    ENUM: ['Amsterdam', 'Berlin', 'Frankfurt', 'Madrid', 'Munich','Paris'],
     require: true
   }
 });

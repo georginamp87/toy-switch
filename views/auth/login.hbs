@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 
-<form method="POST" action="/login">
+<form class="profile" method="POST" action="/login">
   <div class="mb-3">
      <label class="form-label">Email</label>
     <input name="email" required="true" type="email"  class="form-control">
@@ -12,12 +12,10 @@
  
 
   <button type="submit" class="btn btn-primary">Log In</button>
+  <h5 >Still not registered? Sign Up <a href="/signup">here</a></h5>
 </form>
 
 {{!-- Conditionally render the msg--}}
 {{#if msg}}
 <div class="error">{{msg}}</div>
 {{/if}}
-
-
-<h5>Still not registered? Sign Up <a href="/signup">here</a></h5>
