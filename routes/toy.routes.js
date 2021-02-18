@@ -38,16 +38,16 @@ router.get("/addtoy", checkLoggedInUser, (req, res, next) => {
   res.render("add-toy.hbs", {data})
 })
 
-router.post("/addtoy/", checkLoggedInUser,uploader.single("imageUrl"), (req, res, next) => {
+router.post("/addtoy", checkLoggedInUser,uploader.single("imageUrl"), (req, res, next) => {
   let user = req.session.userData
    
   const {name, description, category, ageRange, switchMode}=req.body
 
-  if (!name.length || !description.length || !category.length || !ageRange.length || !switchMode.length) {
-    res.render('/addtoy', { msg: 'Please enter all fields' })
-    return;
-  }
-  console.log(req.file.path)
+  // if (!name.length || !description.length || !category.length || !ageRange.length || !switchMode.length) {
+  //   res.redirect('/addtoy', { msg: 'Please enter all fields' })
+  //   return;
+  // }
+
   let newToy={
     name,description, category, ageRange, switchMode,
     myOwner:user._id,
@@ -105,6 +105,11 @@ router.post("/edittoy/:id", checkLoggedInUser,(req,res,next)=>{
   let id=req.params.id;
   
   const {name, description, category, ageRange, switchMode}=req.body
+  // if (!name.length || !description.length || !category.length || !ageRange.length || !switchMode.length) {
+  //   res.redirect('/edittoy/'+id, { msg: 'Please enter all fields' })
+  //   return;
+  // }
+
   let updatedToy={
     name,description, category, ageRange, switchMode,
     myOwner:user._id,

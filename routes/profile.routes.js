@@ -2,6 +2,7 @@ const router = require('express').Router();
 const ToyModel = require('../models/Toy.model');
 const UserModel = require('../models/User.model');
 const uploader = require('../config/cloudinary.config');
+const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 const checkLoggedInUser = (req, res, next) => {
   if (req.session.userData) {
@@ -17,6 +18,11 @@ router.get('/profile', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData 
   ToyModel.find({myOwner:user._id})
   .then((toyResults)=>{
+    toyResults.map(toy=>{
+      toy.name=capitalized(toy.name);
+      toy.description=capitalized(toy.description);
+      return toy;
+    })
     let data = {user, toyResults}
    res.render('profile.hbs', {data})
   })
@@ -35,10 +41,10 @@ router.post('/editprofile', checkLoggedInUser, (req, res, next) => {
   let user = req.session.userData;
   const { name, lastName, city, email} = req.body
 
-  if (!name.length || !lastName.length || !email.length || !city.length) {
-    res.render('edit-profile', { msg: 'Please enter all fields' })
-    return;
-  }
+  // if (!name.length || !lastName.length || !email.length || !city.length) {
+  //   res.render('edit-profile', { msg: 'Please enter all fields' })
+  //   return;
+  // }
   let regexEmail = /\S+@\S+\.\S+/;
   if (!regexEmail.test(email)) {
     res.render('edit-profile', { msg: 'Email is not a valid format' })

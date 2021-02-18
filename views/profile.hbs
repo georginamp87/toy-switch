@@ -1,6 +1,6 @@
+<h4 class="card-title">Hello {{data.user.name}}!</h4>
 <div class="columnDiv">
-  <section class="profile">
-    <h4 class="card-title">Hello {{data.user.name}}!</h4>
+  <section class="profile pro-card">
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
@@ -10,11 +10,6 @@
             src={{data.user.photo}}
             alt="profile">
         </div>
-
-
-
-
-
         <div class="col-md-8">
           <div class="card-body">
             <table>
@@ -42,10 +37,9 @@
 
       </div>
       <div class="div-button">
-        <button class="btn-primary btn-lg"><a href='/addprofilephoto'>Change Your Photo</a></button>
-        <button class="btn-primary btn-lg rightButton"><a href='/editprofile'>EDIT PROFILE</a></button>
+        <button class="btn-primary btn-lg"><a href='/addprofilephoto'>Upload Photo</a></button>
+        <a href='/editprofile'><img width="100em"src="images/editprofile.png" alt="edit-icon"></a>
       </div>
-
   </section>
   <section class="yourToys">
     <div class="center">

@@ -2,15 +2,15 @@
 <form class="profile" method="POST" action="/editprofile">
   <div class="mb-3">
     <label class="form-label">Name</label>
-    <input value={{data.user.name}} name="name" type="text" class="form-control">
+    <input required="true" value={{data.user.name}} name="name" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Last Name</label>
-    <input  value={{data.user.lastName}} name="lastName" type="text" class="form-control">
+    <input required="true" value={{data.user.lastName}} name="lastName" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label>City</label>
-    <select name="city" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="city" class="form-select" aria-label="Default select example">
       <option selected> {{data.user.city}}</option>
       <option value="Amsterdam">Amsterdam</option>
       <option value="Berlin">Berlin</option>

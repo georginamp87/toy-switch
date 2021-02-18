@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px 'Roboto Condensed', sans-serif, Helvetica;
 
 }
 
@@ -19,6 +19,18 @@ h5 span {
   font-style: italic;
  
 }
+.error {
+  font-family: 'Fredoka One';
+  color:#FF4040;
+  text-align: center;
+ 
+}
+
+h5  {
+  text-align: center;
+  color: black;
+  font-family: 'Fredoka One';
+}
 
 h4 {
   text-align: center;
@@ -26,12 +38,34 @@ h4 {
   font-family: 'Fredoka One';
 }
 
+
 .categories {
   margin: auto;
-  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar,.row-cols-md-3{
+  margin: 1em;
+}
+
+.btn-primary{
+  background-color:#0E53A7 ;
+  font-family: 'Fredoka One';
+}
+.categories button{
+  margin: 1em;
+  width: 12em;
+}
+.div-link{
+  padding: 1.5em;
+  margin: auto;
+  width: 60%;
   text-align: center;
   display: flex;
   justify-content: space-between;
+
 }
 
 #navalternative a{
@@ -99,6 +133,18 @@ tr, td, th {
     margin:auto
   }
 
+  .center{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+  }
+  
+
+  .pro-card{
+    margin: 1em;
+  }
+
 .columnDiv{
   display: flex;
   justify-content: flex-start;
@@ -107,7 +153,7 @@ tr, td, th {
 
 }
 
-.fhhlex-inline{
+.flex-inline{
   display: flex;
   flex-direction: row;
 }
@@ -135,6 +181,11 @@ tr, td, th {
   padding:1em;
   text-align: start;
 }
+
+#toypage{
+  width:40em;
+  margin: auto;
+}
 .messages-div{
   margin: auto;
 }
@@ -144,17 +195,20 @@ p{
 }
 
 
-#toypage{
-
-  margin:auto;
-  max-width: 700px;
-  
+.btn-del:hover{
+  background-color: #FF4040;
+  border-color: #FF4040;
 }
 
 .div-button{
 
   display: flex;
   justify-content:space-between ;
+  align-items: center;
+}
+.div-button-center{
+  display: flex;
+  justify-content:space-around ;
   align-items: center;
 }
 

@@ -3,15 +3,15 @@
 <form class="profile" method="POST" action="/addtoy" enctype="multipart/form-data">
   <div class="mb-3">
     <label class="form-label">Name</label>
-    <input name="name" type="text" class="form-control">
+    <input  required="true"  name="name" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Description</label>
-    <input name="description" type="text" class="form-control">
+    <input  required="true"  name="description" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label>Category</label>
-    <select name="category" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="category" class="form-select" aria-label="Default select example">
       <option selected>Select a category</option>
       <option value="Toy">Toy</option>
       <option value="Board Game">Board Game</option>
@@ -25,7 +25,7 @@
   </div>
   <div class="mb-3">
     <label>Age Range</label>
-    <select name="ageRange" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="ageRange" class="form-select" aria-label="Default select example">
       <option selected>Select an age range</option>
       <option value="baby">Baby</option>
       <option value="toddler">Toddler</option>
@@ -36,7 +36,7 @@
   </div>
   <div class="mb-3">
     <label>Switch Mode</label>
-    <select name="switchMode" class="form-select" aria-label="Default select example">
+    <select  required="true"  name="switchMode" class="form-select" aria-label="Default select example">
       <option selected>Select a switch mode</option>
       <option value="switch">Switch</option>
       <option value="gift">Gift</option>
