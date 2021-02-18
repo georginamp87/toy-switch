@@ -14,6 +14,11 @@ header span {
   color: #FF4040;
 }
 
+.bgimg {
+ background-color: #00b7ff;
+ background-blend-mode: screen;
+}
+
 h5 span {
   font-family: 'Fredoka One';
   font-style: italic;
