@@ -1,39 +1,40 @@
+<div class="div-message">
 
+  {{!-- <div class="card-toy">
+  {{>toy data.dtos.0.message.toyRelated}}
+  </div> --}}
 
-  
-
-<div class="messages-div list-group">
+  <a class="toy-link" href='/toypage/{{data.dtos.0.message.toyRelated._id}}'>
+  <div class="messages-div list-group">
   <div class="card mb-3" style="max-width: 800px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img class="small-image" src="{{data.photoUrl}}" alt="toyimages">
+        <img class="small-image" src="{{data.dtos.0.message.toyRelated.photos.[0]}}" alt="toyimages">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">Messages with <span>{{data.contactName}} {{data.contactLastName}}</span></h5>
+          
+          <h5 class="card-title">{{data.dtos.0.message.toyRelated.name}} to {{data.dtos.0.message.toyRelated.switchMode}}</span></h5>
           <h5 class="card-title">Toy to Switch <span>{{data.toyName}}</span></h5>
+          <p class="card-text">{{data.dtos.0.message.toyRelated.description}}</p> 
         </div>
       </div>
     </div>
   </div>
+  </a>
 
-    {{#each data.messInfos}}
+  <h2>Messages with {{data.contactFullname}}</h2>
 
-    {{#if this.isItMein}}
-    <div class="div-right">{{this.text}}</div>
-    {{/if}}
-
-    {{#unless this.isItMein}}
-    <div class="div-left">{{this.text}}</div>
-
-    {{/unless}}
-
-    {{/each}}
-    <form method="POST" action="/answermessage/{{data.contactId}}/{{data.toyId}}">
-          <input name="text" required="true" type="text" class="form-control">
-          <button type="submit" class="btn btn-primary">Send</button>
-        </form>
-
-
-
-  </div>
+  {{#each data.dtos}}
+    {{#if this.isItMyMessage}}
+  <div class="div-right">{{this.message.text}} <br><span class="small text-muted">{{this.date}}</span></div>
+  {{/if}}
+  {{#unless this.isItMyMessage}}
+  <div class="div-left">{{this.message.text}}<br><span class="small text-muted">{{this.date}}</span></div>
+  {{/unless}}
+  {{/each}}
+  <form class="message-form" method="POST" action="/answermessage/{{data.contactId}}/{{data.toyId}}">
+    <input name="text" required="true" type="text" class="form-control">
+    <button type="submit" class="btn btn-primary btn-del">Send</button>
+  </form>
+</div>

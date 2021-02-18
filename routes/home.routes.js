@@ -20,6 +20,7 @@ router.get('/home', checkLoggedInUser, (req, res, next) => {
     toyResults.map(toy=>{
       toy.name=capitalized(toy.name);
       toy.description=capitalized(toy.description);
+      toy.switchMode=capitalized(toy.switchMode);
       return toy;
     }) 
     let data = {user, toyResults}

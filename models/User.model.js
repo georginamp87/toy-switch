@@ -29,7 +29,7 @@ const userSchema = new Schema({
   },
   city: {
     type: String,
-    ENUM: ['Amsterdam', 'Berlin', 'Frankfurt', 'Madrid', 'Munich','Paris'],
+    ENUM: ['Amsterdam', 'Augsburg','Berlin', 'Frankfurt','Ljubljana', 'Madrid', 'Munich','Paris','Warsaw'],
     require: true
   }
 });

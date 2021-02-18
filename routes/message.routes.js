@@ -93,8 +93,6 @@ router.get('/messageswith/:id', checkLoggedInUser, (req, res, next) => {
   })
     .populate({
       path: 'toyRelated',
-      select: "photos name"
-
     })
     .populate({
       path: 'between',
@@ -102,27 +100,25 @@ router.get('/messageswith/:id', checkLoggedInUser, (req, res, next) => {
       select: 'name lastName'
     })
     .then((allMessages) => {
-      let messInfos = [];
-      let activeMessages=allMessages.filter(msg=>(msg.toyRelated))
+      let dtos=[]
+      let activeMessages=allMessages.filter(msg=>(msg.toyRelated))//to eliminate the messages about deleted toy
       activeMessages.forEach(ms => {
-        let messInfo = {
-          text: ms.text,
-          date: ms.date,
-          isItMein: (user._id == ms.between[0]._id) ? true : false,
-        }
-        messInfos.push(messInfo);
+          let dto={
+          message:ms,
+          date: ms.date.toString().substring(4, 9) + ms.date.toString().substring(14, 21),
+          isItMyMessage:(user._id == ms.between[0]._id) ? true : false,
+          }
+          dtos.push(dto);  
       })
+      let index=(allMessages[0].between[0]==contactId)?0:1;
       let data = {
-        messInfos,
+        dtos,
         user,
-        photoUrl: activeMessages[0].toyRelated.photos[0],
-        contactName: (user._id == contactId) ? activeMessages[0].between[0].name : activeMessages[0].between[1].name,
-        contactLastName: (user._id == contactId) ? activeMessages[0].between[0].lastName : activeMessages[0].between[1].lastName,
-        contactId: contactId,
-        toyName: activeMessages[0].toyRelated.name,
-        toyId: activeMessages[0].toyRelated._id
+        contactId,
+        contactFullname:allMessages[0].between[index].name+" "+allMessages[0].between[index].lastName,
+        toyId:activeMessages[0].toyRelated._id
       }
-      console.log(data.toyId)
+      //res.json(data)
       res.render("messages-with", { data })
     })
     .catch((err) => {
@@ -135,18 +131,12 @@ router.post('/answermessage/:contactId/:toyId', checkLoggedInUser, (req, res, ne
   let toyId = req.params.toyId;
   const { text } = req.body;
   let sender = req.session.userData
-
-
   let between = [sender._id, contactId]
   let message = { between, text, toyRelated: toyId }
   MessageModel.create(message)
     .then(() => {
       res.redirect("/messageswith/" + contactId)
     })
-    .catch((err) => {
-      next(err)
-    })
-
     .catch((err) => {
       next(err)
     })

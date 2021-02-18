@@ -3,8 +3,8 @@
 <div class="list-group">
 
   {{#each data.dtos}}
-  <a href="messageswith/{{this.contactId}}" class="list-group-item list-group-item-action">
-  <div class="card mb-3" style="max-width: 800px;">
+  <a href="messageswith/{{this.contactId}}" class="list-group-item-action">
+  <div class="card mb-3" style="max-width: 600px;">
     <div class="row g-0">
       <div class="col-md-4">
         <img class="small-image" src="{{this.photoUrl}}" alt="toyimages">
@@ -14,12 +14,12 @@
           <h5 class="card-title">Messages with <span>{{this.contactName}} {{this.contactLastName}}</span></h5>
           <h5 class="card-title">Toy to Switch <span>{{this.toyName}}</span></h5>
           <p class="card-text">{{this.text}}</p>
-          <p class="card-text"><small class="text-muted">{{this.date}}</small></p>
+          <p class="text-muted">{{this.date}}</p>
         </div>
       </div>
     </div>
   </div>
   </a>
   {{/each}}
+  </div>
 
-</div>

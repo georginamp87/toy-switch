@@ -53,10 +53,13 @@
       
       <button class="accordion btn-primary btn-lg buttonRight">Request Switch</button>
       <div class="panel">
-        <textarea name="text" form="usrform" cols="60" rows="4" placeholder="Enter your message here..."></textarea>
+        <textarea name="text" form="userform" cols="60" rows="4" placeholder="Enter your message here..."></textarea>
         <form id="userform" class="center" method="POST" action="/sendmessage/{{data.toy._id}}">
+        
           <button type="submit" class="btn btn-primary btn-del">Send</button>
         </form>
+        
+        
         </div>
 
 

@@ -6,10 +6,17 @@ html {
 .animate__animated.animate__bounce {
   --animate-duration: 2s;
 }
+
 body {
-  margin-bottom: 4em;
-  padding: 4em 4em 0 4em;
-  font: 16px 'Roboto Condensed', sans-serif, Helvetica;
+  margin-bottom: 5em;
+  padding: 1em 4em;
+  font: 16px 'Roboto Condensed', sans-serif, Helvetica;
+}
+
+
+/* yeni */
+.mb-3 {
+  padding: 1em;
 }
 
 header {
@@ -23,28 +30,41 @@ header span {
 }
 
 .bgimg {
- background-color: #00b7ff;
- background-blend-mode: screen;
+  background-color: #00b7ff;
+  background-blend-mode: screen;
 }
-
-
 
 h5 span {
   font-family: 'Fredoka One';
   font-style: italic;
- 
-}
-.error {
-  font-family: 'Fredoka One';
-  color:#FF4040;
-  text-align: center;
- 
 }
 
-h5  {
+.error {
+  font-family: 'Fredoka One';
+  color: #FF4040;
   text-align: center;
+
+}
+
+h5 {
   color: black;
   font-family: 'Fredoka One';
+}
+
+.card-body h5,
+.card-body p {
+  padding-left: 1em;
+}
+
+.text-muted {
+  padding-right: 1em;
+  text-align: end;
+}
+
+
+.list-group{
+  max-width: 800px;
+  margin: auto;
 }
 
 h4 {
@@ -54,6 +74,7 @@ h4 {
 }
 
 
+
 .categories {
   margin: auto;
   text-align: center;
@@ -61,19 +82,22 @@ h4 {
   justify-content: center;
 }
 
-.searchbar,.row-cols-md-3{
+.searchbar,
+.row-cols-md-3 {
   margin: 1em;
 }
 
-.btn-primary{
-  background-color:#0E53A7 ;
+.btn-primary {
+  background-color: #0E53A7;
   font-family: 'Fredoka One';
 }
-.categories button{
+
+.categories button {
   margin: 1em;
   width: 12em;
 }
-.div-link{
+
+.div-link {
   padding: 1.5em;
   margin: auto;
   text-align: center;
@@ -82,105 +106,130 @@ h4 {
 
 }
 
-footer{
+footer {
   width: 100%;
-  height: 4em;
+  height: 2em;
   position: absolute;
-  bottom: 0px; left: 0;
+  bottom: 0px;
+  left: 0;
   margin-top: 1em;
 }
-#divfooter  {
- display: flex;
- justify-content: center;
- align-items: center;
+
+#divfooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#navalternative a{
+#navalternative a {
   font-size: 1.2em;
   text-decoration: none;
-  text-transform:uppercase;
-  color:#0E53A7;
+  text-transform: uppercase;
+  color: #0E53A7;
   font-family: 'Fredoka One';
   font-weight: 600;
-  margin:1.3em 1.3em 2em 1.3em;
+  margin: 1.3em 1.3em 2em 1.3em;
 }
 
-#navalternative{
+#navalternative {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-#index-body{
+#index-body {
   max-width: 60em;
-  margin:auto;
+  margin: auto;
 }
 
 
 a {
   text-decoration: none;
-  color: #00b7ff; }
+  color: #00b7ff;
+}
 
-  button a:hover,button a:visited,button a:active,button a:link {
-    color:white;
-  }
+button a:hover,
+button a:visited,
+button a:active,
+button a:link {
+  color: white;
+}
 
 .toy-link:hover,.toy-link:visited,.toy-link:active,.toy-link:link {
-    color:black;
-  }
+  color:black;
+}
 
 h1 {
-  font-size: 3; 
+  font-size: 3;
   color: #FF4040;
   text-align: center;
   font-family: 'Fredoka One', cursive;
-  animation: wobble; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s; /* don't forget to set a duration! */
+  animation: wobble;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s;
+  /* don't forget to set a duration! */
 }
 
-tr, td, th {
-    padding:10px 20px;
-    font-size: 1.1em;
-  }
+h2 {
+  font-size: 1.8em;
+  color: #FF4040;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  padding: 1em 0 0 0;
+}
 
-  th{
-    text-align: right;
-    color:#133CAC;
-  }
+tr,
+td,
+th {
+  padding: 10px 20px;
+  font-size: 1.1em;
+}
 
-  .rightButton{
-   margin: 10px;
-   align-self:flex-end;
-  }
+th {
+  text-align: right;
+  color: #133CAC;
+}
 
-  .active, .accordion:hover {
-    background-color: #ccc;
-  }
-  .panel {
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
+.rightButton {
+  margin: 10px;
+  align-self: flex-end;
+}
 
-  .profile{
-    max-width:600px;
-    margin:auto
-  }
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
 
-  .center{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-  }
-  
+.panel {
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
 
-  .pro-card{
-    margin: 1em;
-  }
+.profile {
+  max-width: 600px;
+  margin: auto
+}
 
-.columnDiv{
+.div-message {
+  max-width: 800px;
+  margin: auto
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.pro-card {
+  padding: 0.3em;
+}
+
+.columnDiv {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -188,68 +237,72 @@ align-items: center;
 
 }
 
-.flex-inline{
+.flex-inline {
   display: flex;
   flex-direction: row;
+}
+
+.small-image {
+  width: 200px;
+}
+
+.div-right {
+  margin: 1em;
+  padding: 1em;
+  text-align: end;
+  background-color: rgb(168, 220, 233);
+}
+
+.message-form {
+  margin: 0.6em;
+  padding: 0.6em;
+  text-align: end
+}
+
+.div-left {
+  background-color: #eeeeee;
+  margin: 1em;
+  padding: 1em;
+  text-align: start;
+}
+
+#toypage {
+  width: 40em;
+  margin: auto;
+}
+
+
+p {
+  padding: 0.3em;
+}
+
+
+.btn-del:hover {
+  background-color: #FF4040;
+  border-color: #FF4040;
+}
+
+.div-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div-button-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.toy-image {
+  width: 100%;
+  max-height: 40vh;
+  /*not want to take all vertical space*/
+  object-fit: contain;
+  /*show all image, autosized, no cut, in available space*/
 }
 
 .list-group{
   max-width: 800px;
   margin: auto;
 }
-
-.small-image{
-  width:200px;
-}
-
-.div-right{
-  margin:1em;
-  padding:1em;
-  text-align: end;
-  background-color:rgb(168, 220, 233);
-
-}
-
-.div-left{
-  background-color:#eeeeee;
-  margin:1em;
-  padding:1em;
-  text-align: start;
-}
-
-#toypage{
-  width:40em;
-  margin: auto;
-}
-.messages-div{
-  margin: auto;
-}
-
-p{
-  padding:0.3em;
-}
-
-
-.btn-del:hover{
-  background-color: #FF4040;
-  border-color: #FF4040;
-}
-
-.div-button{
-  display: flex;
-  justify-content:space-between ;
-  align-items: center;
-}
-.div-button-center{
-  display: flex;
-  justify-content:space-around ;
-  align-items: center;
-}
-
-.toy-image {
-  width:100%;
-  max-height: 40vh; /*not want to take all vertical space*/
-  object-fit: contain;/*show all image, autosized, no cut, in available space*/
-}
-
-/*# sourceMappingURL=style.css.map */

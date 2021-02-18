@@ -10,21 +10,24 @@
   </div>
   <div class="mb-3">
     <label>City</label>
-    <select  required="true"  name="city" class="form-select" aria-label="Default select example">
+    <select required="true" name="city" class="form-select" aria-label="Default select example">
       <option selected> {{data.user.city}}</option>
       <option value="Amsterdam">Amsterdam</option>
+      <option value="Augsburg">Augsburg</option>
       <option value="Berlin">Berlin</option>
       <option value="Frankfurt">Frankfurt</option>
+      <option value="Frankfurt">Ljubljana</option>
       <option value="Madrid">Madrid</option>
       <option value="Munich">Munich</option>
       <option value="Paris">Paris</option>
+      <option value="Paris">Warsaw</option>
     </select>
   </div>
   <div class="mb-3">
-     <label class="form-label">Email</label>
-    <input value="{{data.user.email}}" name="email" required="true" type="email"  class="form-control">
+    <label class="form-label">Email</label>
+    <input value="{{data.user.email}}" name="email" required="true" type="email" class="form-control">
   </div>
-  
+
   <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
