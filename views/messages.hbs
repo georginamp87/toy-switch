@@ -1,6 +1,12 @@
 <h1>Your Messages</h1>
 
+
+
 <div class="list-group">
+
+  {{#if data.thereIsNoMessage}}
+<h4>No Messages yet</h4>
+  {{/if}}
 
   {{#each data.dtos}}
   <a href="messageswith/{{this.contactId}}" class="list-group-item-action">

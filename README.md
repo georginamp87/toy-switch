@@ -44,7 +44,8 @@ Switch toys with other parents from your city.
   - deletes user session data
 - GET /home
   - renders home.hbs (the toy switches preview + search form)
- - renders toy switches result when searched
+  - renders toys result when searched
+  - renders toy modes result when switch mode buttons clicked
 - GET /toypage/:id
   - renders toypage.hbs using the toyId params
   - includes buttons that redirect to /edit or /delete if it is my toy
@@ -152,7 +153,7 @@ Switch toys with other parents from your city.
     -label for read and unread messages
 
 - home.hbs
-    -search by age range categories and switch mode
+    -search by age range categories;
 
  - Confirmation.hbs
     - Summary of product
@@ -160,7 +161,6 @@ Switch toys with other parents from your city.
     
  - User profile
     - Favorite toys
-    - Add profile photo
     - Who favorited the games posted
     
     

@@ -1,18 +1,46 @@
 <h1>Edit your Toy</h1>
+<div>
+  <div class="rowDiv">
+  {{#each data.toy.photos}}
+    <img src="{{this}}" height="150px" alt="toy-image">
 
-<form method="POST" action="/edittoy/{{data.toy._id}}">
+  {{/each}} 
+  <form class="profile" method="POST" action="/addphoto/{{data.toy._id}}" enctype="multipart/form-data">
+  <div class="mb-3">
+    <input type="file" name="imageUrl" accept="image/png, image/jpg">
+    <button type="submit" class="btn btn-primary">Add Photo</button>
+  </div>
+</form></div> 
+   <div class="rowDiv"> 
+    {{#if data.toy.photos.[0]}}
+    <button class="btn-primary btn-del buttonRight"><a href='/deletephoto/{{data.toy._id}}/0'>Delete
+        Photo</a></button>
+        {{/if}}
+        {{#if data.toy.photos.[1]}}
+    <button class="btn-primary btn-del buttonRight"><a href='/deletephoto/{{data.toy._id}}/1'>Delete
+        Photo</a></button>
+        {{/if}}
+        {{#if data.toy.photos.[2]}}
+    <button class="btn-primary btn-del buttonRight"><a href='/deletephoto/{{data.toy._id}}/2'>Delete
+        Photo</a></button>
+        {{/if}}
+        </div> 
+</div>
+
+
+<form class="profile" method="POST" action="/edittoy/{{data.toy._id}}">
   <div class="mb-3">
     <label class="form-label">Name</label>
-    <input  required="true"  value="{{data.toy.name}}" name="name" type="text" class="form-control">
+    <input required="true" value="{{data.toy.name}}" name="name" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Description</label>
-    <input  required="true"   value="{{data.toy.description}}" name="description" type="text" class="form-control">
+    <input required="true" value="{{data.toy.description}}" name="description" type="text" class="form-control">
   </div>
   <div class="mb-3">
     <label>Category</label>
-    <select  required="true"  name="category" class="form-select" aria-label="Default select example">
-      <option value="{{data.toy.category}}"selected>{{data.toy.category}}</option>
+    <select required="true" name="category" class="form-select" aria-label="Default select example">
+      <option value="{{data.toy.category}}" selected>{{data.toy.category}}</option>
       <option value="Toy">Toy</option>
       <option value="Board Game">Board Game</option>
       <option value="Teddy Bear">Teddy Bear</option>
@@ -25,8 +53,8 @@
   </div>
   <div class="mb-3">
     <label>Age Range</label>
-    <select  required="true"  name="ageRange" class="form-select" aria-label="Default select example">
-      <option value="{{data.toy.ageRange}}"selected>{{data.toy.ageRange}}</option>
+    <select required="true" name="ageRange" class="form-select" aria-label="Default select example">
+      <option value="{{data.toy.ageRange}}" selected>{{data.toy.ageRange}}</option>
       <option value="baby">Baby</option>
       <option value="toddler">Toddler</option>
       <option value="3 to 6 years old">3 to 6 years old</option>
@@ -34,22 +62,19 @@
       <option value="10 years old +">10 years old +</option>
     </select>
   </div>
-<div class="mb-3">
+  <div class="mb-3">
     <label>Switch Mode</label>
-    <select  required="true"  name="switchMode" class="form-select" aria-label="Default select example">
+    <select required="true" name="switchMode" class="form-select" aria-label="Default select example">
       <option value="{{data.toy.switchMode}}" selected>{{data.toy.switchMode}}</option>
       <option value="switch">Switch</option>
       <option value="gift">Gift</option>
       <option value="temporary-switch">Temporary switch</option>
     </select>
   </div>
-    <div class="mb-3">
-    <label>Toy photos</label>
-      <input type="file" name="imageUrl" accept="image/png, image/jpg">
-  </div>
   <button type="submit" class="btn btn-primary">Update Toy</button>
-</form>
+  </form>  
 
-{{#if msg}}
-<div class="error">{{msg}}</div>
-{{/if}}
+
+  {{#if msg}}
+  <div class="error">{{msg}}</div>
+  {{/if}}

@@ -1,5 +1,8 @@
-const { Schema, model } = require("mongoose");
-let defaultImg ="https://image.freepik.com/vektoren-kostenlos/weihnachten-spielt-hintergrund-im-flachen-design_23-2148350472.jpg";
+const {
+  Schema,
+  model
+} = require("mongoose");
+let defaultImg = "https://image.freepik.com/vektoren-kostenlos/weihnachten-spielt-hintergrund-im-flachen-design_23-2148350472.jpg";
 
 const toySchema = new Schema({
   name: {
@@ -9,14 +12,14 @@ const toySchema = new Schema({
   myOwner: {
     type: Schema.Types.ObjectId,
     ref: "user",
-    require:true
+    require: true
   },
   description: {
     type: String
   },
   photos: {
     type: [String],
-    default:[defaultImg]
+    default: [defaultImg]
   },
   category: {
     type: String,
@@ -25,7 +28,7 @@ const toySchema = new Schema({
   },
   city: {
     type: String,
-    ENUM: ['Amsterdam', 'Berlin', 'Frankfurt', 'Paris','other'],
+    ENUM: ['Amsterdam', 'Berlin', 'Frankfurt', 'Paris', 'other'],
     require: true
   },
   ageRange: {

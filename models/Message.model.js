@@ -1,4 +1,7 @@
-const { Schema, model } = require("mongoose");
+const {
+  Schema,
+  model
+} = require("mongoose");
 
 const messageSchema = new Schema({
   text: {
@@ -6,20 +9,20 @@ const messageSchema = new Schema({
     require: true
   },
   between: {
-    type:[Schema.Types.ObjectId],
+    type: [Schema.Types.ObjectId],
     ref: "user",
-    require:true
+    require: true
   },
 
   toyRelated: {
     type: Schema.Types.ObjectId,
     ref: "toy",
-    require:true
+    require: true
   },
- date: {
-   type: Date,
-   default: Date.now
- }
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const MessageModel = new model("message", messageSchema);

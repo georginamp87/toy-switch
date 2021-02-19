@@ -51,10 +51,16 @@ h5 {
   font-family: 'Fredoka One';
 }
 
+#index-body h5{
+  text-align: center;
+}
+
 .card-body h5,
 .card-body p {
   padding-left: 1em;
 }
+
+
 
 .text-muted {
   padding-right: 1em;
@@ -131,11 +137,12 @@ footer {
   margin: 1.3em 1.3em 2em 1.3em;
 }
 
-#navalternative {
+#navalternative {   
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
+
 
 #index-body {
   max-width: 60em;
@@ -159,16 +166,7 @@ button a:link {
   color:black;
 }
 
-h1 {
-  font-size: 3;
-  color: #FF4040;
-  text-align: center;
-  font-family: 'Fredoka One', cursive;
-  animation: wobble;
-  /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s;
-  /* don't forget to set a duration! */
-}
+
 
 h2 {
   font-size: 1.8em;
@@ -224,7 +222,6 @@ th {
   align-items: center;
 }
 
-
 .pro-card {
   padding: 0.3em;
 }
@@ -234,7 +231,22 @@ th {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  padding:1em;
+}
 
+.rowDiv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+
+}
+.rowDiv img,.rowDiv button{
+  margin:0.8em;
+}
+
+.rowDiv button{
+  margin-right:130px;
 }
 
 .flex-inline {
@@ -271,6 +283,36 @@ th {
   margin: auto;
 }
 
+h1 {
+  font-size: 3;
+  color: #FF4040;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+}
+
+.btn-primary:hover{
+  animation: wobble 1s;
+}
+
+#logo{
+  animation: bounce 1s;
+}
+@keyframes wobble {
+  0% { transform: translateX(0%); } 
+  25% { transform: translateX(-15%) rotate(-3deg); } 
+  50% { transform: translateX(10%) rotate(2deg); }
+  75% { transform: translateX(-5%) rotate(-1deg); }
+  100% { transform: translateX(0%); } 
+}
+
+@keyframes bounce{
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(2em); }
+  100% { transform: translateY(0); }
+}
+
+
+
 
 p {
   padding: 0.3em;
@@ -306,3 +348,25 @@ p {
   max-width: 800px;
   margin: auto;
 }
+
+@media only screen and (max-width: 600px) { 
+  #navalternative {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  #navalternative a {
+  
+    margin: 0.7em;
+  }
+  
+  body {
+    padding: 1em 2em;
+  }
+  
+  #toypage {
+    width: 25em;
+    margin: auto;
+  }
+  
+  }
